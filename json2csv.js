@@ -21,13 +21,15 @@ var csvConverter = {
 
     array.forEach(function (item, index) {
       line = '';
-      for (var index in item) {
-        if (line !== '') { line += ','; }
-        regex = /\,/
-        value = item[index]
+      for ( index in item ) {
+        if ( line !== '' ) { 
+          line += ','; 
+        }
+          regex = /\,/;
+          value = item[index];
        
         if (typeof value  === "string") {
-          value = regex.test(value) ? '"' + value + '"' : value
+          value = regex.test(value) ? '"' + value + '"' : value;
         }
         line += value;
       }
