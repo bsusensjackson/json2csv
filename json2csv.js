@@ -40,6 +40,19 @@ var csvConverter = {
       }
       str += line + '\r\n';
     });
-    return str;
+    return this.open(str);
+  },
+  
+  open: function(str) {
+    if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) 
+    {  // Determine if client is IE11
+      var blob = new Blob([csvString], {
+        type: "text/csv;charset=utf-8;"
+      });
+      window.navigator.msSaveBlob(blob, "tcm-01.csv");
+      } 
+      else {
+       window.open("data:text/csv;charset=utf-8," + escape(csvString));
+    }
   }
 }
