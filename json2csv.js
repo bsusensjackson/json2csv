@@ -43,7 +43,7 @@ var csvConverter = {
     return this.open(str);
   },
   
-  open: function(str) {
+  open: function(csvString) {
     if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) 
     {  // Determine if client is IE11
       var blob = new Blob([csvString], {
