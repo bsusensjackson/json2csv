@@ -25,9 +25,9 @@
       array.forEach(function (item, index) {
         line = '';
         for ( index in item ) {
-          if (  !line === '' ) line += ','; 
-            regex = /\,/;
-            value = item[index];
+          if (  line !== '' ) line += ','; 
+          regex = /\,/;
+          value = item[index];
 
           if (typeof value  === "string") {
             // If the value contained in the JSON object is a string:
