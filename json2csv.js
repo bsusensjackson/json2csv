@@ -1,5 +1,5 @@
 (function() {
-  var csvConverter = {
+  return csvConverter = {
     convert: function (objArray) {
       var array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray;
       //Assume that the headers of the document are equal to the keys in the JSON object. 
@@ -48,11 +48,12 @@
         var blob = new Blob([csvString], {
           type: "text/csv;charset=utf-8;"
         });
-        window.navigator.msSaveBlob(blob, "tcm-01.csv");
-        } 
-        else {
-         window.open("data:text/csv;charset=utf-8," + escape(csvString));
+        return window.navigator.msSaveBlob(blob, "tcm-01.csv");
+      } 
+      else {
+        return window.open("data:text/csv;charset=utf-8," + escape(csvString));
       }
-    }
+    csvString = null;
+    }  
   }
 }.call(this));
