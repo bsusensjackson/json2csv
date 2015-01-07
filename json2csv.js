@@ -1,4 +1,9 @@
+//set up namespacing. 
+var csvConverter;
+csvConverter = csvConverter || {};
+
 (function() {
+  "use strict";
   return csvConverter = {
     convert: function (objArray) {
       var array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray;
