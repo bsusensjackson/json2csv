@@ -64,7 +64,6 @@ csvConverter = csvConverter || {};
         link.click();
         return window.open(csvContent);
       }
-    csvString = null;
     }
   }
 }.call(this));
