@@ -56,7 +56,13 @@ csvConverter = csvConverter || {};
         return window.navigator.msSaveBlob(blob, "tcm-01.csv");
       } 
       else {
-        return window.open("data:text/csv;charset=utf-8," + escape(csvString));
+        var csvContent = "data:text/csv;charset=utf-8," + escape(csvString);
+        var link = document.createElement("a");
+        link.setAttribute("href", csvContent);
+        link.setAttribute("download", "download.csv");
+        document.body.appendChild(link);
+        link.click();
+        return window.open(csvContent);
       }
     csvString = null;
     }
